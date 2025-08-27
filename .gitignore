@@ -2,3 +2,5 @@ ConsoleApp/appsettings.json
 ConsoleApp/bin/Debug/
 ConsoleApp/obj/Debug/
 log.txt
+ConsoleApp/obj/ConsoleApp.csproj.nuget.dgspec.json
+ConsoleApp/obj/project.nuget.cache
