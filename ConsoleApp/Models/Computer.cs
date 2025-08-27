@@ -12,10 +12,8 @@ namespace ConsoleApp.Models
         public decimal Price { get; set; }
         public string VideoCard { get; set; } = "";
 
-        // public Computer(
-
-        public void printInfo(){
-            Console.WriteLine($"Motherboard: {Motherboard} ||| CPUCores: {CPUCores} ||| HasWifi: {HasWifi} ||| HasLTE: {HasLTE} ||| ReleaseDate: {ReleaseDate} ||| Price: {Price} ||| VideoCard: {VideoCard} |||");
+        public string retrieveInfo(){
+            return $"Motherboard: {Motherboard} ||| CPUCores: {CPUCores} ||| HasWifi: {HasWifi} ||| HasLTE: {HasLTE} ||| ReleaseDate: {ReleaseDate} ||| Price: {Price} ||| VideoCard: {VideoCard} |||";
         }
     }
 

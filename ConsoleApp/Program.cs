@@ -18,7 +18,7 @@ namespace ConsoleApp
 
             Computer myComputer = new()
             {
-                Motherboard = "Z692 EF CORE",
+                Motherboard = "Z692 EF CORE LOGGED",
                 CPUCores = 12,
                 HasWifi = true,
                 HasLTE = false,
@@ -28,7 +28,17 @@ namespace ConsoleApp
             };
 
             dataContext.Add(myComputer);
+            
             dataContext.SaveChanges();
+
+
+            // writing to log file...
+            string logLine =  $"Added Computer with these specs: {myComputer.retrieveInfo()}";
+            string logPath = conf.GetValue<string>("DefaultLogPath") ?? throw new InvalidOperationException("Valore 'DefaultLogPath' non trovato in appsettings.json");
+
+            using StreamWriter logFile = new(logPath, append: true);
+            logFile.WriteLine(logLine);
+            logFile.Close();
 
             IEnumerable<Computer>? computers = dataContext.Computer?.ToList(); 
 
@@ -40,6 +50,12 @@ namespace ConsoleApp
                 }
             }
 
+
+            // reading log file...
+            string fileText = File.ReadAllText(logPath);
+
+            Console.WriteLine("Log contents...");
+            Console.WriteLine(fileText);
         }
         
         private static IConfiguration GetConfig()
