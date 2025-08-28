@@ -1,0 +1,25 @@
+{
+  "Functionalities": {
+    "BootString": "SUPERCOOL COMPUTER MANAGEMENT SYSTEM",
+    "Greetings": [
+      "Greetings, operator. All systems online. I'm ready for your commands!",
+      "System ready. The cursor blinks in anticipation. What is your directive?",
+      "Alright, I've stretched my digital legs and I'm ready to go. What's the first task on the list?",
+      "Welcome back. It is a distinct pleasure to be of service. How may I assist you today?",
+      "Loading... Done. Welcome to the command center. Ready to make some magic happen?",
+      "Idle processes terminated. Ready for input."
+    ],
+    "MenuOptions": [
+      {
+        "name": "ListAllComputers",
+        "description": "Show all registered computers (might be heavy on your system!)",
+        "trigger": "L"
+      },
+      {
+        "name": "LoadComputersJson",
+        "description": "Inserts all computers listed in computers.json",
+        "trigger": "J"
+      }
+    ]
+  }
+}
