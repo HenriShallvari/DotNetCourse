@@ -11,8 +11,8 @@ namespace ConsoleApp
         private static void Main(string[] args)
         {
 
-            try
-            {
+            // try
+            // {
                 IConfiguration conf = GetConfig("appsettings.json");
                 DataContextEF dataContext = new(conf); // same as new DataContextEF()... 
 
@@ -21,7 +21,7 @@ namespace ConsoleApp
                 HashSet<string> availableActions = GetAvailableActionNames();
 
                 BootAndGreet(funcOptions);
-                string userOption = "";
+                string? userOption = "";
 
                 ActionHandler handler = new();
 
@@ -33,14 +33,14 @@ namespace ConsoleApp
                     if (userOption != null && userOption.Trim() != "")
                     {
                         var selectedOption = funcOptions.MenuOptions
-                                            .FirstOrDefault(opt => opt.Trigger.Equals(userOption, StringComparison.InvariantCultureIgnoreCase));
+                                            .FirstOrDefault(opt => opt.Trigger.Equals(userOption.Trim(), StringComparison.InvariantCultureIgnoreCase));
 
                         if (userOption != "0")
                         {
                             if (selectedOption != null && availableActions.Contains(selectedOption.Name))
                             {
                                 MethodInfo actionToInvoke = typeof(ActionHandler).GetMethod(selectedOption.Name)!;
-                                actionToInvoke.Invoke(null, null); 
+                                actionToInvoke.Invoke(null, [conf, dataContext]); 
                             }
                             else
                             {
@@ -53,12 +53,12 @@ namespace ConsoleApp
                         Console.WriteLine("Please select an option.");
                     }
                 }
-            } 
-            catch (Exception exc)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"There was an error during the program execution: {exc.Message}");
-            }
+            // } 
+            // catch (Exception exc)
+            // {
+                // Console.ForegroundColor = ConsoleColor.Red;
+                // Console.WriteLine($"There was an error during the program execution: {exc.Message}");
+            // }
 
             Console.WriteLine("Bye!");
         }
