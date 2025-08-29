@@ -1,0 +1,15 @@
+D:\CAREER PIVOT\CSharp\APICrashCourse\CSharpCrashCourse\AsyncAndTasks\bin\Debug\net9.0\AsyncAndTasks.exe
+D:\CAREER PIVOT\CSharp\APICrashCourse\CSharpCrashCourse\AsyncAndTasks\bin\Debug\net9.0\AsyncAndTasks.deps.json
+D:\CAREER PIVOT\CSharp\APICrashCourse\CSharpCrashCourse\AsyncAndTasks\bin\Debug\net9.0\AsyncAndTasks.runtimeconfig.json
+D:\CAREER PIVOT\CSharp\APICrashCourse\CSharpCrashCourse\AsyncAndTasks\bin\Debug\net9.0\AsyncAndTasks.dll
+D:\CAREER PIVOT\CSharp\APICrashCourse\CSharpCrashCourse\AsyncAndTasks\bin\Debug\net9.0\AsyncAndTasks.pdb
+D:\CAREER PIVOT\CSharp\APICrashCourse\CSharpCrashCourse\AsyncAndTasks\obj\Debug\net9.0\AsyncAndTasks.GeneratedMSBuildEditorConfig.editorconfig
+D:\CAREER PIVOT\CSharp\APICrashCourse\CSharpCrashCourse\AsyncAndTasks\obj\Debug\net9.0\AsyncAndTasks.AssemblyInfoInputs.cache
+D:\CAREER PIVOT\CSharp\APICrashCourse\CSharpCrashCourse\AsyncAndTasks\obj\Debug\net9.0\AsyncAndTasks.AssemblyInfo.cs
+D:\CAREER PIVOT\CSharp\APICrashCourse\CSharpCrashCourse\AsyncAndTasks\obj\Debug\net9.0\AsyncAndTasks.csproj.CoreCompileInputs.cache
+D:\CAREER PIVOT\CSharp\APICrashCourse\CSharpCrashCourse\AsyncAndTasks\obj\Debug\net9.0\AsyncAndTasks.sourcelink.json
+D:\CAREER PIVOT\CSharp\APICrashCourse\CSharpCrashCourse\AsyncAndTasks\obj\Debug\net9.0\AsyncAndTasks.dll
+D:\CAREER PIVOT\CSharp\APICrashCourse\CSharpCrashCourse\AsyncAndTasks\obj\Debug\net9.0\refint\AsyncAndTasks.dll
+D:\CAREER PIVOT\CSharp\APICrashCourse\CSharpCrashCourse\AsyncAndTasks\obj\Debug\net9.0\AsyncAndTasks.pdb
+D:\CAREER PIVOT\CSharp\APICrashCourse\CSharpCrashCourse\AsyncAndTasks\obj\Debug\net9.0\AsyncAndTasks.genruntimeconfig.cache
+D:\CAREER PIVOT\CSharp\APICrashCourse\CSharpCrashCourse\AsyncAndTasks\obj\Debug\net9.0\ref\AsyncAndTasks.dll

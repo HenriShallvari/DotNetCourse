@@ -4,3 +4,5 @@ ConsoleApp/obj/Debug/
 log.txt
 ConsoleApp/obj/ConsoleApp.csproj.nuget.dgspec.json
 ConsoleApp/obj/project.nuget.cache
+AsyncAndTasks/bin/Debug/
+AsyncAndTasks/obj/Debug/net9.0/.NETCoreApp,Version=v9.0.AssemblyAttributes.cs
