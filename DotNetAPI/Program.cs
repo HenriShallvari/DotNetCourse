@@ -11,6 +11,24 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer(); // looks at what endpoints we have and throws them into Swagger
 builder.Services.AddSwaggerGen(); // generates all the necessary info for Swagger
 
+builder.Services.AddCors((options) =>
+    {
+        options.AddPolicy("DevCors", (corsBuilder) =>
+            {
+                corsBuilder.WithOrigins("http://localhost:4200", "http://localhost:3000", "http://localhost:8000")
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials();
+            });
+        options.AddPolicy("ProdCors", (corsBuilder) =>
+            {
+                corsBuilder.WithOrigins("https://myProductionSite.com")
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials();
+            });
+    });
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
