@@ -1,3 +1,4 @@
+using DotNetAPI.Data;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DotNetAPI.Controllers;
@@ -7,9 +8,12 @@ namespace DotNetAPI.Controllers;
 public class UserController : ControllerBase
 {
 
-    public UserController()
-    {
+    DataContextDapper _dapper;
 
+    public UserController(IConfiguration config)
+    {
+        // Console.WriteLine(config.GetConnectionString("DefaultConnection"));
+        _dapper = new DataContextDapper(config);
     }
 
     [HttpGet("GetUsers/{testValue}")]
@@ -23,5 +27,11 @@ public class UserController : ControllerBase
         ];
 
         return respArray;
-    }    
+    }
+
+    [HttpGet("TestConnection")]
+    public DateTime TestConnection()
+    {
+        return _dapper.LoadDataSingle<DateTime>("SELECT GETDATE()");
+    }
 }

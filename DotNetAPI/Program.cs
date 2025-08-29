@@ -35,11 +35,13 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     // app.MapOpenApi();
+    app.UseCors("DevCors");
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 else
 {
+    app.UseCors("ProdCors");
     app.UseHttpsRedirection();
 }
 
