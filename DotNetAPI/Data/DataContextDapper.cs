@@ -8,28 +8,28 @@ public class DataContextDapper(IConfiguration config)
 {
     private readonly IConfiguration _config = config;
 
-    public IEnumerable<T> LoadData<T>(string sql)
+    public IEnumerable<T> LoadData<T>(string sql, object? sqlParams = null)
     {
         IDbConnection dbConnection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
-        return dbConnection.Query<T>(sql);
+        return dbConnection.Query<T>(sql, sqlParams);
 
     }
-    public T LoadDataSingle<T>(string sql)
+    public T LoadDataSingle<T>(string sql, object? sqlParams = null)
     {
         IDbConnection dbConnection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
-        return dbConnection.QuerySingle<T>(sql);
+        return dbConnection.QuerySingle<T>(sql, sqlParams);
 
     }
 
-    public bool ExecuteSql(string sql)
+    public bool ExecuteSql(string sql, object? sqlParams = null)
     {
         IDbConnection dbConnection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
-        return dbConnection.Execute(sql) > 0;  
+        return dbConnection.Execute(sql, sqlParams) > 0;  
     }
 
-    public int ExecuteSqlWithRowCount(string sql)
+    public int ExecuteSqlWithRowCount(string sql, object? sqlParams = null)
     {
         IDbConnection dbConnection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
-        return dbConnection.Execute(sql);  
+        return dbConnection.Execute(sql, sqlParams);  
     }
 }

@@ -1,37 +1,34 @@
 using DotNetAPI.Data;
+using DotNetAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DotNetAPI.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class UserController : ControllerBase
+public class UserController(IConfiguration config) : ControllerBase
 {
 
-    DataContextDapper _dapper;
+    readonly DataContextDapper _dapper = new(config);
 
-    public UserController(IConfiguration config)
-    {
-        // Console.WriteLine(config.GetConnectionString("DefaultConnection"));
-        _dapper = new DataContextDapper(config);
-    }
-
-    [HttpGet("GetUsers/{testValue}")]
+    [HttpGet("GetAllUsers")]
     // public IActionResult Test() basically a safe way to say you're going to return anything
-    public string[] GetUsers(string testValue)
+    public IEnumerable<User> GetAllUsers()
     {
-        string[] respArray = [ 
-            "test1",
-            "test2",
-            testValue
-        ];
-
-        return respArray;
+        string sql = "SELECT * FROM TutorialAppSchema.USERS";
+        IEnumerable<User> users = _dapper.LoadData<User>(sql);
+        return users;
     }
 
-    [HttpGet("TestConnection")]
-    public DateTime TestConnection()
+    [HttpGet("GetUser/{userID}")]
+    // public IActionResult Test() basically a safe way to say you're going to return anything
+    public User GetUser(int userID)
     {
-        return _dapper.LoadDataSingle<DateTime>("SELECT GETDATE()");
+        // string sql = "SELECT * FROM TutorialAppSchema.USERS WHERE UserID = '" + userID.ToString() + "'";
+        string sql = "SELECT * FROM TutorialAppSchema.USERS WHERE UserID = @UserID";
+        var parameters = new { UserId = userID };
+        User user = _dapper.LoadDataSingle<User>(sql, parameters);
+
+        return user; 
     }
 }
