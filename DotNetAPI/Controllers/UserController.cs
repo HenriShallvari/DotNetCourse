@@ -21,7 +21,6 @@ public class UserController(IConfiguration config) : ControllerBase
     }
 
     [HttpGet("GetUser/{userID}")]
-    // public IActionResult Test() basically a safe way to say you're going to return anything
     public User GetUser(int userID)
     {
         // string sql = "SELECT * FROM TutorialAppSchema.USERS WHERE UserID = '" + userID.ToString() + "'";
@@ -30,5 +29,67 @@ public class UserController(IConfiguration config) : ControllerBase
         User user = _dapper.LoadDataSingle<User>(sql, parameters);
 
         return user; 
+    }
+
+    [HttpPut("EditUser/")]
+    public IActionResult EditUser(User user)
+    {
+        string sql = @"UPDATE TutorialAppSchema.USERS 
+                          SET FirstName = @FirstName,
+                              LastName = @LastName,
+                              Email = @Email,
+                              Gender = @Gender,
+                              Active = @Active
+                        WHERE UserId = @UserId";
+        var parameters = new
+        {
+            FirstName = user.FirstName,
+            LastName = user.LastName,
+            Email = user.Email,
+            Gender = user.Gender,
+            Active = user.Active,
+            UserId = user.UserId
+        };
+
+        if(_dapper.ExecuteSql(sql, parameters))
+        {
+            return Ok();
+        }
+
+        throw new Exception("Failed to update user!");
+    }
+
+    [HttpPost("AddUser/")]
+    public IActionResult AddUser(User user)
+    {
+        string sql = @"INSERT INTO TutorialAppSchema.USERS(
+                          FirstName,
+                          LastName,
+                          Email,
+                          Gender,
+                          Active
+                       ) VALUES (
+                          @FirstName,
+                          @LastName,
+                          @Email,
+                          @Gender,
+                          @Active
+                       )";
+        var parameters = new
+        {
+            FirstName = user.FirstName,
+            LastName = user.LastName,
+            Email = user.Email,
+            Gender = user.Gender,
+            Active = user.Active
+        };
+
+        if(_dapper.ExecuteSql(sql, parameters))
+        {
+            return Created();
+        }
+            
+
+        throw new Exception("Failed to insert user!");
     }
 }

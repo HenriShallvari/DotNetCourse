@@ -12,13 +12,12 @@ public class DataContextDapper(IConfiguration config)
     {
         IDbConnection dbConnection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
         return dbConnection.Query<T>(sql, sqlParams);
-
     }
+
     public T LoadDataSingle<T>(string sql, object? sqlParams = null)
     {
         IDbConnection dbConnection = new SqlConnection(_config.GetConnectionString("DefaultConnection"));
         return dbConnection.QuerySingle<T>(sql, sqlParams);
-
     }
 
     public bool ExecuteSql(string sql, object? sqlParams = null)
