@@ -82,3 +82,10 @@ D:\CAREER PIVOT\CSharp\APICrashCourse\CSharpCrashCourse\DotNetAPI\bin\Debug\net9
 D:\CAREER PIVOT\CSharp\APICrashCourse\CSharpCrashCourse\DotNetAPI\bin\Debug\net9.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 D:\CAREER PIVOT\CSharp\APICrashCourse\CSharpCrashCourse\DotNetAPI\bin\Debug\net9.0\runtimes\win\lib\net9.0\System.Diagnostics.EventLog.dll
 D:\CAREER PIVOT\CSharp\APICrashCourse\CSharpCrashCourse\DotNetAPI\bin\Debug\net9.0\runtimes\win\lib\net9.0\System.Security.Cryptography.Pkcs.dll
+D:\CAREER PIVOT\CSharp\APICrashCourse\CSharpCrashCourse\DotNetAPI\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.dll
+D:\CAREER PIVOT\CSharp\APICrashCourse\CSharpCrashCourse\DotNetAPI\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\CAREER PIVOT\CSharp\APICrashCourse\CSharpCrashCourse\DotNetAPI\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
+D:\CAREER PIVOT\CSharp\APICrashCourse\CSharpCrashCourse\DotNetAPI\bin\Debug\net9.0\Microsoft.Extensions.Logging.dll
+D:\CAREER PIVOT\CSharp\APICrashCourse\CSharpCrashCourse\DotNetAPI\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\CAREER PIVOT\CSharp\APICrashCourse\CSharpCrashCourse\DotNetAPI\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\CAREER PIVOT\CSharp\APICrashCourse\CSharpCrashCourse\DotNetAPI\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.SqlServer.dll
