@@ -8,10 +8,12 @@ namespace DotNetAPI.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class UserEFController(IConfiguration config) : ControllerBase
+public class UserEFController(IConfiguration config, IUserRepository userRep) : ControllerBase
 {
 
     readonly DataContextEF _entityFramework = new(config);
+    readonly IUserRepository _userRep = userRep;
+
     private readonly IMapper _mapper = new Mapper(new MapperConfiguration(cfg => {
         cfg.CreateMap<UserToAddDTO, User>();
     }));
@@ -53,7 +55,7 @@ public class UserEFController(IConfiguration config) : ControllerBase
             userDB.Email = user.Email;
             userDB.Gender = user.Gender;
 
-            if(_entityFramework.SaveChanges() > 0)
+            if(_userRep.SaveChanges())
             {
                 return Ok();
             }
@@ -76,9 +78,9 @@ public class UserEFController(IConfiguration config) : ControllerBase
         // };
         User userToAdd = _mapper.Map<User>(user);
 
-        _entityFramework.Add(userToAdd);
+        _userRep.AddEntity(userToAdd);
 
-        if(_entityFramework.SaveChanges() > 0)
+        if(_userRep.SaveChanges())
         {
             return Created();
         }
@@ -97,9 +99,9 @@ public class UserEFController(IConfiguration config) : ControllerBase
 
         if(userDB != null)
         {
-            _entityFramework.Remove(userDB);
+            _userRep.RemoveEntity(userDB);
 
-            if(_entityFramework.SaveChanges() > 0)
+            if(_userRep.SaveChanges())
             {
                 return Ok();
             }   
